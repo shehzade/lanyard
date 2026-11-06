@@ -2,6 +2,10 @@
 
 AI-driven badge OSINT, credential harvesting, and calibrated CR80 card cloning for physical red teams.
 
+<p align="center">
+  <img src="assets/dashboard-demo.png" alt="Lanyard Badge Intelligence Dossier" width="100%">
+</p>
+
 ## Table of Contents
 
 - [Description](#description)
@@ -198,6 +202,15 @@ Open `http://127.0.0.1:8088/report.html` in your browser. The gallery includes:
 - CR80 perspective toggle for viewing the flat PVC badge layout.
 - Pan and zoom controls for reading dense text, barcodes, and chip serials.
 - Filter controls for badge type (employee, contractor, visitor).
+
+#### Calibrated CR80 Card Reconstruction (300 DPI)
+
+Lanyard detects badge boundary corners and applies a perspective homography matrix to output flat, print-ready PVC cards (85.6mm × 54.0mm):
+
+| Shi Choong (Intel) | Wendy Ngoh (Intel) | Kosta Briger (Intel) |
+| :---: | :---: | :---: |
+| <img src="assets/cr80-shi-choong.png" width="280" alt="Shi Choong CR80 Badge"> | <img src="assets/cr80-wendy-ngoh.png" width="280" alt="Wendy Ngoh CR80 Badge"> | <img src="assets/cr80-kosta-briger.png" width="280" alt="Kosta Briger CR80 Badge"> |
+| *Extracted: Name, Photo, Corporate Branding* | *Extracted: Name, Photo, RFID Geometry* | *Extracted: Dual-Language Typography, Badge Reel* |
 
 ### 4. Exporting Reports
 

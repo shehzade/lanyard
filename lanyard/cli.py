@@ -249,11 +249,15 @@ def hunt(
             queries = [f'"{company}" ({keyword.strip()})']
     elif multi_query:
         queries = [
-            f'"{company}" (badge OR "security pass" OR "access card" OR "ID badge")',
-            f'"{company}" ("first day" OR "day 1" OR "day one" OR "new role" OR "welcome to")',
-            f'"{company}" ("new intern" OR "internship" OR "joining" OR "first week")',
-            f'"{company}" ("last day" OR "leaving" OR "farewell" OR "final day")',
-            f'"{company}" (lanyard OR "employee badge" OR "work badge")',
+            f'{company} "ID badge"',
+            f'{company} "employee badge"',
+            f'{company} "first day" badge',
+            f'{company} "last day" badge',
+            f'"As I depart {company}"',
+            f'{company} "turned in my badge"',
+            f"{company} lanyard",
+            f"{company} intern badge",
+            f'{company} "got my badge"',
         ]
     else:
         search_kw = " OR ".join(f'"{k}"' for k in cfg.default_keywords[:3])

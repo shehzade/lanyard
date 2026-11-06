@@ -32,7 +32,8 @@ def get_browser_context(headless: bool = True) -> Generator[BrowserContext, None
         finally:
             try:
                 current_cookies = context.cookies()
-                if current_cookies:
+                has_auth = any(c.get("name") in ("li_at", "li_rm") for c in current_cookies)
+                if current_cookies and has_auth:
                     save_cookies(current_cookies)
             except Exception:
                 pass

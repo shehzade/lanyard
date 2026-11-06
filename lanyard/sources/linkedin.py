@@ -16,6 +16,9 @@ class LinkedInScraper:
 
     def is_authenticated(self, page: Page) -> bool:
         url = page.url.lower()
+        if "remember-me" in url or "ssr-login" in url:
+            time.sleep(4.0)
+            url = page.url.lower()
         return not ("login" in url or "checkpoint" in url or "authwall" in url)
 
     def warm_session(self, page: Page) -> bool:
@@ -26,6 +29,8 @@ class LinkedInScraper:
                 timeout=30000,
             )
             time.sleep(2.5)
+            if "remember-me" in page.url.lower() or "ssr-login" in page.url.lower():
+                time.sleep(4.0)
             return self.is_authenticated(page)
         except Exception:
             return False
@@ -50,6 +55,8 @@ class LinkedInScraper:
             console.print(f"[cyan][*] Navigating to search feed: [bold]{query}[/bold][/cyan]")
             page.goto(search_url, wait_until="domcontentloaded", timeout=45000)
             time.sleep(3.5)
+            if "remember-me" in page.url.lower() or "ssr-login" in page.url.lower():
+                time.sleep(4.0)
 
             if not self.is_authenticated(page):
                 console.print("[dim yellow][*] Session warming up via /feed...[/dim yellow]")
