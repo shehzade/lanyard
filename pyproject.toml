@@ -1,0 +1,33 @@
+[project]
+name = "lanyard"
+version = "1.0.0"
+description = "AI-driven badge OSINT, credential harvesting, and calibrated CR80 card cloning for physical red teams"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "aiosqlite>=0.22.1",
+    "camoufox[geoip]>=0.5.9",
+    "google-genai>=2.34.0",
+    "httpx>=0.28.1",
+    "numpy>=1.26.0",
+    "pillow>=11.0.0",
+    "playwright>=1.50.0",
+    "pydantic>=2.10.0",
+    "rich>=13.9.0",
+    "typer>=0.15.0",
+]
+
+[project.scripts]
+lanyard = "lanyard.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP"]
+ignore = ["E501"]
